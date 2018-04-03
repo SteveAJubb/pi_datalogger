@@ -1,0 +1,25 @@
+╺┳┓┏━┓╺┳╸┏━┓╻  ┏━┓┏━╸┏━╸┏━╸┏━┓   ╻┏┓╻┏━┓╺┳╸┏━┓╻  ╻  ┏━┓╺┳╸╻┏━┓┏┓╻ 
+ ┃┃┣━┫ ┃ ┣━┫┃  ┃ ┃┃╺┓┃╺┓┣╸ ┣┳┛   ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫╹
+╺┻┛╹ ╹ ╹ ╹ ╹┗━╸┗━┛┗━┛┗━┛┗━╸╹┗╸   ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹╹
+
+To install:
+Place the datalogger folder in /home/pi
+Edit tcp_server.py and change the TCP_IP variable to the IP of the raspberry pi (more information on the variables in this script can be found in README.docx.
+Run the install.sh script as root: 
+   sudo ./install.sh
+
+Confirm installation:
+Restart the raspberry pi.
+Use htop or top to check if "python3 /home/pi/datalogger/tcp_server.py" is running.
+
+Troubleshooting:
+If it turns out that the script isn't running make sure that the TCP_IP is set correctly, and try restarting again.
+If this is not working try starting the module manually by typing: 
+   sudo systemctl start tcp
+If it is still not working try:
+   sudo systemctl status tcp
+to get more information.
+If you are able to start the module but it won't start on boot try running:
+   sudo systemctl enable tcp.
+You also might want to try running the tcp_server.py scipt seperately to see if it gives you any errors:
+   sudo ./tcp_server.py

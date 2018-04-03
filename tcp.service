@@ -1,0 +1,13 @@
+[Unit]
+Description=raspberry pi tcp server
+After=network.target
+After=NetworkManager.service
+
+[Service]
+Type=simple
+ExecStart=/home/pi/datalogger/tcp_server.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
